@@ -1,0 +1,146 @@
+{% extends 'layout.html' %} {% load static %}
+
+
+{% block content %}
+
+<div class="carousel-container">
+  <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'core/respaldo-garcia.png'%}" class="d-block w-100 carousel-image" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'core/cama-liberty.png'%}" class="d-block w-100 carousel-image" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'core/mesas-sillas-antonieta.png'%}" class="d-block w-100 carousel-image" alt="...">
+      </div>
+    </div>
+    <!-- Agregamos los controles del carrusel -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+
+<!-- Productos recomendados -->
+<div class="container mt-5">
+  <h1>Productos Recomendados</h1>
+
+  <div class="row mt-3 text-center">
+    <div class="col">
+      <div class="card shadow w-60">
+        <img src="{% static 'core/mesas-sillas-antonieta.png'%}" class="card-img-top img-fluid" style="height: 200px;" alt="...">
+        <div class="card-body">
+          <p class="card-text fw-bold">Mesas Antonieta</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow w-60">
+        <img src="{% static 'core/velador-garcia.png'%}" class="card-img-top img-fluid" style="height: 200px;" alt="...">
+        <div class="card-body">
+          <p class="card-text fw-bold">Velador Garcia</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow w-60" >
+        <img src="{% static 'core/estante-garcia.png'%}" class="card-img-top img-fluid" style="height: 200px;" alt="...">
+        <div class="card-body">
+          <p class="card-text fw-bold">Estante Garcia</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow w-60">
+        <img src="{% static 'core/respaldo-garcia.png'%}" class="card-img-top img-fluid" style="height: 200px;" alt="...">
+        <div class="card-body">
+          <p class="card-text fw-bold">Respaldo Garcia</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow w-60">
+        <img src="{% static 'core/cama-garcia.png'%}" class="card-img-top img-fluid" style="height: 200px;" alt="...">
+        <div class="card-body">
+          <p class="card-text fw-bold">Cama Garcia</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow w-60">
+        <img src="{% static 'core/cama-liberty.png'%}" class="card-img-top img-fluid" style="height: 200px;" alt="...">
+        <div class="card-body">
+          <p class="card-text fw-bold">Cama Liberty</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div>
+  <p class="text-index text-center mt-5">Tu hogar debe contar la historia <br>de
+    quién eres y ser una colección de <br>
+    lo que amas.</p>
+</div>
+
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <div class="card card-product">
+        <img src="{% static 'core/cama-garcia.png'%}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="...">
+        <div class="card-body shadow ">
+          <p class="card-text"><b>Cama Garcia</b>
+            <br>
+            <del>$300.000</del>
+            <span class="price">$250.000</span>
+            <span>4 disponibles</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="card card-product">
+        <img src="{% static 'core/cama-liberty.png'%}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="...">
+        <div class="card-body shadow">
+          <p class="card-text"><b>Cama Liberty</b>
+            <br>
+            <del>$120.000</del>
+            <span class="price">$100.000</span>
+            <span>30 disponibles</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="card card-product">
+        <img src="{% static 'core/respaldo-garcia.png'%}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="...">
+        <div class="card-body shadow">
+          <p class="card-text bold"><b>Respaldo Garcia</b>
+            <br>
+            <del>$150.000</del>
+            <span class="price">$120.000</span>
+            <span>2 disponibles</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}
+
