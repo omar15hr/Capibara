@@ -1,0 +1,12 @@
+{% extends 'layout.html' %} 
+{% load static %}
+{% load humanize %}
+
+{% block content %} 
+<h1>{{ producto.nombre }}</h1>
+<p>Precio: {{ producto.precio }}</p>
+<p>Descripción: {{ producto.descripcion }}</p>
+{% endblock %}
+
+
+

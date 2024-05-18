@@ -1,0 +1,52 @@
+{% extends 'layout.html' %} 
+{% load static %}
+{% load humanize %}
+
+{% block content %} 
+
+  <div class="container shadow my-5">
+    <a href="{% url 'category' %}" class="btn btn-outline-secondary my-3"><i class="bi bi-arrow-left-short "></i>Continúa comprando</a>
+    <div class="row my-2">
+      <hr>
+      <div class="col-8 my-2 d-flex flex-column align-items-sm-start ">
+        <span>Productos en el carrito:</span>
+        <span>Total de la compra:</span>
+      </div>
+      <div class="col-4 my-2 d-flex flex-column align-items-sm-end ">
+        <button class="btn btn-success mt-3">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container my-2">
+    <div class="table-responsive shadow">
+        <table class="table table-hover ">
+
+            <thead class="text-center table-secondary  " >
+                <tr>
+                    <th>Imagen</th>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+
+            <tbody class="text-center">
+                <tr>
+                    <td>Prueba</td>
+                    <td>Nombre de prueba</td>
+                    <td>$50.000</td>
+                    <td>5</td>
+                    <td>$500.000</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+  </div>
+{% endblock %}
+
+
+
