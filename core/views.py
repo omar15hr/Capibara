@@ -10,12 +10,11 @@ def category(request):
   return render(request, 'category.html', {'products': products})
 
 def detalleProducto(request, productoId):
-  products = Product.objects.all()
-  context = {'products': products}
-  return render(request, 'detalleProducto.html', context)
+  product = get_object_or_404(Product, pk=productoId)
+  tipoProduct = product.tipo.name
+  return render(request, 'detalleProducto.html', {'product': product, 'tipoProduct': tipoProduct})
 
 def carrito(request):
-  
   context = {}
   return render(request, 'cart.html', context)
 
