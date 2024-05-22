@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from crud.models import *
 
 def home(request):
@@ -21,3 +21,4 @@ def carrito(request):
 def checkout(request):
   context = {}
   return render(request, 'cart.html', context)
+

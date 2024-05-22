@@ -13,7 +13,8 @@
               <h5 class="card-title">{{ product.nombre }}</h5>
               <p class="card-text">${{ product.precio|intcomma }}</p>
               <button 
-                class="py-2 border-0" 
+                class="py-2 border-0 add-to-cart"
+                data-product-id="{{ product.ProductId }}"
                 style="background: #D9BEA7; border-radius: 5px; color: #402B18; transition: background-color 0.3s, color 0.3s;" 
                 onmouseover="this.style.background='#f8d9be'; this.style.color='#402B18';" 
                 onmouseout="this.style.background='#D9BEA7'; this.style.color='#402B18';"
