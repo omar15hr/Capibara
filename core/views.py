@@ -13,12 +13,3 @@ def detalleProducto(request, productoId):
   product = get_object_or_404(Product, pk=productoId)
   tipoProduct = product.tipo.name
   return render(request, 'detalleProducto.html', {'product': product, 'tipoProduct': tipoProduct})
-
-def carrito(request):
-  context = {}
-  return render(request, 'cart.html', context)
-
-def checkout(request):
-  context = {}
-  return render(request, 'cart.html', context)
-

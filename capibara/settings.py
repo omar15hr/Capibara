@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'core',
     'crud',
+    'cart',
 ]
+
+CART_SESSION_ID = 'cart'
 
 
 MIDDLEWARE = [

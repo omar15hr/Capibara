@@ -12,15 +12,18 @@
             <div class="card-body text-center">
               <h5 class="card-title">{{ product.nombre }}</h5>
               <p class="card-text">${{ product.precio|intcomma }}</p>
-              <button 
-                class="py-2 border-0 add-to-cart"
-                data-product-id="{{ product.ProductId }}"
+              <form action="{% url 'cart_add' product.ProductId %}" method="post">
+                {% csrf_token %}
+                <button 
+                class="py-2 border-0"
+                type="submit"
                 style="background: #D9BEA7; border-radius: 5px; color: #402B18; transition: background-color 0.3s, color 0.3s;" 
                 onmouseover="this.style.background='#f8d9be'; this.style.color='#402B18';" 
                 onmouseout="this.style.background='#D9BEA7'; this.style.color='#402B18';"
               >
                 Agregar al carrito
               </button>
+              </form>
               <button 
                 class="py-2 border-0" 
                 style="background: #402B18; border-radius: 5px; color: #BFA38A; transition: background-color 0.3s, color 0.3s;" 
