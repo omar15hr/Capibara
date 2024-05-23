@@ -5,7 +5,7 @@
 {% block content %} 
 
   <div class="container shadow my-5">
-    <a href="{% url 'category' %}" class="btn btn-outline-secondary my-3"><i class="bi bi-arrow-left-short "></i>Continúa comprando</a>
+    <a href="{% url 'category' %}" class="btn btn-success  my-3"><i class="bi bi-arrow-left-short "></i>Continúa comprando</a>
     <div class="row my-2">
       <hr>
       <div class="col-8 my-2 d-flex flex-column align-items-sm-start ">
@@ -30,6 +30,7 @@
                     <th>Cantidad</th>
                     <th>Precio</th>
                     <th>Total</th>
+                    <th>Acción</th>
                 </tr>
             </thead>
 
@@ -45,9 +46,29 @@
                             >
                         </td>
                         <td>{{ item.product.nombre }}</td>
-                        <td>{{ item.quantity }}</td>
+                        <td>
+                          <form action="{% url 'cart_update_quantity' item.product.ProductId %}" method="post" class="d-inline">
+                            {% csrf_token %}
+                            <button type="submit" name="action" value="decrease" class="btn btn-outline-secondary btn-sm">-</button>
+                            <span class="mx-2">
+                              {{ item.quantity }}
+                            </span>
+                            <button type="submit" name="action" value="increase" class="btn btn-outline-secondary btn-sm">+</button>
+                          </form>
+                        </td>
                         <td>${{ item.product.precio|intcomma }}</td>
                         <td>${{ item.total_price|intcomma }}</td>
+                        <td>
+                          <form action="{% url 'cart_remove' item.product.ProductId %}" method="post">
+                            {% csrf_token %}
+                            <button 
+                              class="btn btn-outline-secondary"
+                              type="submit"
+                            >
+                              Remover del carrito
+                            </button>
+                          </form>
+                        </td>
                     </tr>
                 {% endfor %}
             {% else %}

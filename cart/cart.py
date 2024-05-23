@@ -50,4 +50,8 @@ class Cart:
         del self.session[settings.CART_SESSION_ID]
         self.save()
 
- 
+    def get_item_quantity(self, product):
+        product_id = str(product.ProductId)
+        if product_id in self.cart:
+            return self.cart[product_id]['quantity']
+        return 0

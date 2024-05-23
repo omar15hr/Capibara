@@ -69,12 +69,5 @@ footer {
   margin-bottom: 60px;
 }
 
-.card-body {
-  background-color: #735D49;
-  color: white;
-}
 
 /* Tabla checkout carrito */
-.tabla-cart {
-  background-color: #402B18;
-}
