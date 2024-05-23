@@ -24,13 +24,12 @@
         <button class="btn btn-outline-light" type="submit">Buscar</button>
       </form>
       <div class="d-flex align-items-center ms-3">
-        <button 
-          class="btn btn-outline-light me-2"
-        >
-          <a
-            href="{% url 'cart_detail' %}"
-          >
-            <i class="bi bi-cart icon-cart text-white"  ></i>
+        <button class="btn btn-outline-light me-2">
+          <a href="{% url 'cart_detail' %}" class="text-decoration-none ">
+            <i class="bi bi-cart icon-cart text-white"></i>
+            <span class="badge bg-primary rounded-pill">
+              {{ cantidad_productos }}
+            </span>
           </a>
         </button>
         <button class="btn btn-outline-light"><i class="bi bi-person icon-login"></i></button>
