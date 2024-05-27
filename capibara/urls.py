@@ -29,6 +29,9 @@ urlpatterns = [
     path('category/', views.category, name='category'),
     path('detalleProducto/<int:productoId>', views.detalleProducto, name='detalleProducto'),
     path('cart/', include('cart.urls')),
+    path('register', views.register, name='register'),
+    path('login', views.login, name='login'),
+    path('logout', views.logout, name='logout'),
 ]
 
 

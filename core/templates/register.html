@@ -1,0 +1,62 @@
+{% extends 'layout.html' %} 
+{% load static %}
+{% load humanize %}
+
+{% block title %}Registro{% endblock %}
+
+{% block content %}
+
+
+  <div class="container d-flex justify-content-center">
+      <div class="col-12 col-md-6 col-lg-4 my-auto">
+          <form action="/register" method="POST" style="width: 100%;">
+              {% csrf_token %}
+              <div>
+                  <div class="text-center mt-5 p-0">
+                      <h2>Registro de usuario</h2>
+                  </div>
+                  <div class="mt-5">
+                      <div class="mb-3 row">
+                          <label for="first_name" class="col-sm-3 col-form-label fw-bold">Nombre</label>
+                          <div class="col-sm 9">
+                              <input class="form-control" type="text" name="first_name" id="first_name" maxlength=30 required>
+                          </div>
+                      </div>
+                      <div class="mb-3 row">
+                          <label for="last_name" class="col-sm-3 col-form-label fw-bold">Apellido</label>
+                          <div class="col-sm 9">
+                              <input class="form-control" type="text" name="last_name" id="last_name" maxlength=30 required>
+                          </div>
+                      </div>
+                      <div class="mb-3 row">
+                          <label for="email" class="col-sm-3 col-form-label fw-bold">Correo electrónico</label>
+                          <div class="col-sm 9">
+                              <input class="form-control" type="email" name="email" id="email" maxlength=100 required>
+                          </div>
+                      </div>
+                      <div class="mb-3 row">
+                          <label for="password" class="col-sm-3 col-form-label fw-bold">Contraseña</label>
+                          <div class="col-sm 9">
+                              <input class="form-control" type="password" name="password" id="password" required>
+                          </div>
+
+                      </div>
+                      <div class="mb-3 row">
+                          <label for="password_confirm" class="col-sm-3 col-form-label fw-bold">Confirmar contraseña</label>
+                          <div class="col-sm 9">
+                              <input class="form-control" type="password" name="password_confirm" id="password_confirm" required>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="text-center">
+                      <div class="d-grid gap-2 col-4 mx-auto">
+                          <input class="btn btn-primary" id="boton-login" type="submit" value="Register">
+                          <a class="btn btn-secondary" href="{% url 'login' %}">Volver al Log in</a>
+                          <a class="inicio-a my-5" href="{% url 'home' %}">Volver al inicio</a>
+                      </div>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+{% endblock %}
