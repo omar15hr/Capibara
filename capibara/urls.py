@@ -24,14 +24,21 @@ from core import views
 
 
 urlpatterns = [
+    # ADMIN
     path('admin/', admin.site.urls),
+    # PAGINA PROYECTO
     path('', views.home, name='home'),
     path('category/', views.category, name='category'),
     path('detalleProducto/<int:productoId>', views.detalleProducto, name='detalleProducto'),
+    # CARRITO
     path('cart/', include('cart.urls')),
+    # AUTENTICACION
     path('register', views.register, name='register'),
     path('login', views.login, name='login'),
     path('logout', views.logout, name='logout'),
+    # RECUPERACION DE CONTRASEÑA
+    path('password_reset_form/', views.passwordResetForm, name='password_reset_form'),
+    
 ]
 
 

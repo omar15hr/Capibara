@@ -4,6 +4,22 @@ from .models import *
 from cart.cart import Cart
 from django.contrib import messages
 import bcrypt
+from django.shortcuts import render, redirect
+from django.core.mail import send_mail
+from django.urls import reverse
+from django.utils.http import urlsafe_base64_encode
+from django.template.loader import render_to_string
+from django.contrib.auth.tokens import default_token_generator
+from .forms import *
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.models import User
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.urls import reverse
+from django.contrib.auth.forms import SetPasswordForm
+from .forms import PasswordResetForm
 
 def home(request):
   products = Product.objects.all()
@@ -89,3 +105,4 @@ def logout(request):
         del request.session['usuario']
     
     return redirect('/')
+
