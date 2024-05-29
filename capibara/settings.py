@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'crud',
     'cart',
 ]
+SITE_ID = 1
 
 CART_SESSION_ID = 'cart'
 
@@ -128,15 +130,21 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 MEDIA_URL = '/media/'
 
-# settings.py
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'  # por ejemplo, Gmail
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'your-email@gmail.com'
-EMAIL_HOST_PASSWORD = 'your-email-password'
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# Configuración de Resend
+RESEND_API_KEY = 're_TnxmQyia_62r94mPAK3ujhzMXXfBqEae6'
+RESEND_SENDER_EMAIL = 'omarhrn@gmail.com'
 
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_POST = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'capibaradjango@gmail.com'
+EMAIL_HOST_PASSWORD = 'capibara123'
+
+
+
+
+# settings.py
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
