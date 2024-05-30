@@ -7,7 +7,6 @@
   --color5: #260F01;
 }
 
-
 /* IMAGEN LOGO */
 .img-logo {
   width: 120px;
@@ -31,11 +30,11 @@
 
 
 /* FOOTER */
-footer {
-  background-color: #735D49;
+.footer {
+  position: fixed;
+  width: 100%;
+  text-align: center;
 }
-
-
 
 /* CONTENIDO */
 .carousel-container {
