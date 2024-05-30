@@ -32,7 +32,7 @@
             </span>
           </a>
         </button>
-        {% if request.session.usuario.rol == 'USER' or request.session.usuario.rol == 'ADMIN' %}
+        {% if user.is_authenticated %}
           {% else %}
             <button class="btn btn-outline-light mx-2">
               <a href="{% url 'account_login' %}" class="text-decoration-none">
@@ -40,7 +40,7 @@
               </a>
             </button>
         {% endif %}
-        {% if request.session.usuario.rol == 'USER' or request.session.usuario.rol == 'ADMIN' %}
+        {% if user.is_authenticated %}
           <button class="btn btn-outline-light">
             <a href="{% url 'account_logout' %}" class="text-decoration-none ">
               <i class="bi bi-box-arrow-right text-white"></i>
