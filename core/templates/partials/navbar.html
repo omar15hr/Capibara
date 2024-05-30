@@ -35,14 +35,14 @@
         {% if request.session.usuario.rol == 'USER' or request.session.usuario.rol == 'ADMIN' %}
           {% else %}
             <button class="btn btn-outline-light mx-2">
-              <a href="{% url 'login' %}" class="text-decoration-none">
+              <a href="{% url 'account_login' %}" class="text-decoration-none">
                 <i class="bi bi-person icon-login text-white"></i>
               </a>
             </button>
         {% endif %}
         {% if request.session.usuario.rol == 'USER' or request.session.usuario.rol == 'ADMIN' %}
           <button class="btn btn-outline-light">
-            <a href="{% url 'logout' %}" class="text-decoration-none ">
+            <a href="{% url 'account_logout' %}" class="text-decoration-none ">
               <i class="bi bi-box-arrow-right text-white"></i>
             </a>
           </button>
