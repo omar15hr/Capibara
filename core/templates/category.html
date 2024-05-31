@@ -1,0 +1,108 @@
+{% extends 'layout.html' %} 
+{% load static %}
+{% load humanize %}
+
+{% block title %}Categoría{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-funnel-fill ">Filtros</i>
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <span class="dropdown-item fw-bold mb-1">
+            Tipo Producto
+          </span>
+          <div class="form-check" style="margin-left: 10px;">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+              Cocina
+            </label>
+          </div>
+          <div class="form-check" style="margin-left: 10px;">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
+            <label class="form-check-label" for="defaultCheck2">
+              Dormitorio
+            </label>
+          </div>
+          <div class="form-check" style="margin-left: 10px;">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
+            <label class="form-check-label" for="defaultCheck2">
+              Comedor
+            </label>
+          </div>
+        </li>
+        <li><hr class="dropdown-divider"></li>
+        
+        <li class="d-flex flex-column align-items-center">
+          <span class="dropdown-item fw-bold mb-1">
+            Rango de precio
+          </span>
+          <div class="d-flex align-items-center" style="width: 140px;">
+            <span class="me-auto">Min.</span>
+            <input 
+              type="range" 
+              class="form-range mx-2"
+              style="flex-grow: 1;"
+              min="0" 
+              max="5" 
+              step="0.5"
+              id="customRange3"
+            >
+            <span class="ms-auto">Máx.</span>
+          </div>
+        </li>
+
+        <!-- <li><hr class="dropdown-divider"></li> -->
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      {% for product in products %}
+        <div class="col-md-3 mb-4">
+          <div class="card border-0  mt-5" style="width: 18rem;">
+            <img src="{{ product.image.url }}" class="card-img-top img-fluid rounded " style="height: 200px; object-fit: cover;" alt="...">
+            <div class="card-body text-center bg-white text-black ">
+              <h5 class="card-title fs-5">{{ product.nombre }}</h5>
+              <p class="card-text fs-6">${{ product.precio|intcomma }}</p>
+              <div class="d-flex justify-content-center">
+                <form action="{% url 'cart_add' product.ProductId %}" method="post" class="me-2">
+                  {% csrf_token %}
+                  <button 
+                    class="py-2 border-0"
+                    type="submit"
+                    style="background: #D9BEA7; border-radius: 5px; color: #402B18; transition: background-color 0.3s, color 0.3s;" 
+                    onmouseover="this.style.background='#f8d9be'; this.style.color='#402B18';" 
+                    onmouseout="this.style.background='#D9BEA7'; this.style.color='#402B18';"
+                  >
+                    Agregar al carrito
+                  </button>
+                </form>
+                <button 
+                  class="py-2 border-0 text-white " 
+                  style="background: #402B18; border-radius: 5px; color: #BFA38A; transition: background-color 0.3s, color 0.3s;" 
+                  onmouseover="this.style.background='#5a3c22'; this.style.color='#BFA38A';" 
+                  onmouseout="this.style.background='#402B18'; this.style.color='#BFA38A';"
+                >
+                  <a 
+                    href="{% url 'detalleProducto' product.ProductId %}" 
+                    class="text-decoration-none" 
+                    style="color: inherit;"
+                  >
+                    Ver Producto
+                  </a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
+
+
+

@@ -1,0 +1,90 @@
+/* Paleta de colores */
+:root {
+  --color1: #402B18;
+  --color2: #735D49;
+  --color3: #BFA38A;
+  --color4: #D9BEA7;
+  --color5: #260F01;
+}
+
+
+/* IMAGEN LOGO */
+.img-logo {
+  width: 120px;
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: #735D49;
+  color: white;
+}
+
+.nav-link {
+  transition: background-color 0.3s ease, border-radius 0.3s ease;
+  border-radius: 10%; /* Aplica el border-radius siempre */
+}
+
+.nav-link:hover {
+  background-color: #402B18;
+  border-radius: 10%;
+}
+
+
+/* FOOTER */
+footer {
+  background-color: #735D49;
+}
+
+
+
+/* CONTENIDO */
+.carousel-container {
+  max-width: 800px; /* Ancho máximo del contenedor del carrusel */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+}
+
+.carousel-image {
+  max-height: 400px; /* Altura máxima de las imágenes */
+  width: auto; /* Ancho automático para mantener la proporción */
+  margin: 0 auto; /* Centra las imágenes horizontalmente */
+}
+
+.card-product {
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+
+}
+
+.price {
+  font-weight: bold;
+  font-size: large;
+}
+.cards {
+  display: flex;
+  justify-content: center;
+}
+
+.text-index {
+  font-size: 50px;
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+
+/* Tabla checkout carrito */
+
+
+/* LOGIN */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

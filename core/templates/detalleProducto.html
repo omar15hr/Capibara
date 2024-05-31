@@ -1,0 +1,53 @@
+{% extends 'layout.html' %} 
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+
+<!-- component -->
+<section class="text-gray-700 body-font overflow-hidden bg-white mt-5 mb-5">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="row gx-5">
+      <div class="col-lg-6">
+        <img 
+          alt="imagen-producto" 
+          class="w-100 object-cover object-center rounded border border-gray-200" 
+          src="{{product.image.url}}"
+        >
+      </div>
+      <div class="col-lg-6 mt-6 mt-lg-0">
+        <a href="{% url 'category'  %}" class="text-black ">Volver</a>
+        <h2 class="">{{tipoProduct}}</h2>
+        <h1 class="">{{product.nombre}}</h1>
+        <p class="lead mt-3">
+          Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan p
+          outine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean shorts keytar banjo tattooed umami cardigan.
+        </p>
+        <div class="d-flex mt-6 align-items-center pb-5 border-bottom border-gray-200 mb-5">
+          <div class="d-flex">
+            <span class="me-3">
+              Color
+            </span>
+          </div>
+        </div>
+        <div class="d-flex">
+          <span class="fs-2">
+            ${{product.precio|intcomma}}
+          </span>
+          <button 
+            class="flex ms-auto border-0 py-2 px-6 focus-outline-none rounded"
+            style="background: #D9BEA7; border-radius: 5px; color: #402B18; transition: background-color 0.3s, color 0.3s;" 
+            onmouseover="this.style.background='#f8d9be'; this.style.color='#402B18';" 
+            onmouseout="this.style.background='#D9BEA7'; this.style.color='#402B18';"
+          >
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>  
+  </div>
+</section>
+{% endblock %}
+
+
+

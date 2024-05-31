@@ -1,0 +1,22 @@
+{% extends 'layout.html' %} 
+
+
+{% block content %}
+
+<h1> Formulario de Reparación de Muebles <h1>
+
+<form action="enviar formulario" method="get">
+    <p>Nombre Completo: <input type="text" name="nombre" size="40"></p>
+    <p>Tipo de mueble: <input type="text" name="mueble" size ="40" min="1900"></p>
+    <p>Tipo de reparación: <input type="text" name="tipo de reparacion" size="40"> </p>
+    <p>Subir foto del mueble: <input type="file" />
+    
+    <p>
+        <input type="submit" value="Enviar formulario" href="home.html">
+      
+    </p>
+  </form>
+
+
+{% endblock %}
+
