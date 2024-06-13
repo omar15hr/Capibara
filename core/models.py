@@ -16,3 +16,6 @@ class User(models.Model):
     rol = CharField(max_length=20, default='USER')
     created_at = DateTimeField(auto_now_add=True)
     updated_at = DateTimeField(auto_now=True)
+
+
+    

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'core',
     'crud',
     'cart',
+    'webpush',
 ]
 SITE_ID = 1
 
@@ -112,6 +113,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+WEBPUSH_SETTINGS = {
+   "VAPID_PUBLIC_KEY": "your_vapid_public_key",
+   "VAPID_PRIVATE_KEY": "your_vapid_private_key",
+   "VAPID_ADMIN_EMAIL": "admin@example.com"
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/

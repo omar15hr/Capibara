@@ -58,6 +58,10 @@ class Product(models.Model):
 
 
 # Modelo para envíos
+class region(models.Model):
+    nombre = CharField(max_length=100)
+    zona = CharField(max_length=1)
+
 class Shipping(models.Model):
     product = ForeignKey(Product, on_delete=models.CASCADE)
     zona_1 = DecimalField(max_digits=10, decimal_places=2)
@@ -97,3 +101,4 @@ class DireccionEntrega(models.Model):
 
     def __str__(self):
         return str(self.direccion)
+

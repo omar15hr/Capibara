@@ -1,0 +1,84 @@
+{% extends 'layout.html' %} {% load static %}
+
+
+
+{% block content %}
+
+
+
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <div class="card card-product text-center bg-white text-black">
+          <img src="{% static 'core/cama-garcia.png'%}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="...">
+          <div class="card-body shadow ">
+            <p class="card-text"><b>cambio stock</b>
+            </p>
+        </form>
+        <button 
+        class="py-2 border-0 text-white " 
+        style="background: #402B18; border-radius: 5px; color: #BFA38A; transition: background-color 0.3s, color 0.3s;" 
+        onmouseover="this.style.background='#5a3c22'; this.style.color='#BFA38A';" 
+        onmouseout="this.style.background='#402B18'; this.style.color='#BFA38A';"
+        >
+        <a 
+            href="{% url 'editadministrador' %}" 
+            class="text-decoration-none" 
+            style="color: inherit;"
+        >
+            Ver Productos
+        </a>
+        </button>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-4">
+        <div class="card card-product text-center bg-white text-black">
+          <img src="{% static 'core/cama-liberty.png'%}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="...">
+          <div class="card-body shadow">
+            <p class="card-text"><b>subir stock</b>
+            </p>
+            <form action="enviar formulario" method="get">
+                <p>Subir excel: <input type="file" />
+                
+                <p>
+                    <input type="submit" value="subir excel" href="home.html">
+                  
+                </p>
+              </form>
+            
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-4">
+        <div class="card card-product text-center bg-white text-black">
+          <img src="{% static 'core/respaldo-garcia.png'%}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="...">
+          <div class="card-body shadow">
+            <p class="card-text bold"><b>revisar bajo stock</b>
+            </p>
+            </form>
+            <button 
+            class="py-2 border-0 text-white " 
+            style="background: #402B18; border-radius: 5px; color: #BFA38A; transition: background-color 0.3s, color 0.3s;" 
+            onmouseover="this.style.background='#5a3c22'; this.style.color='#BFA38A';" 
+            onmouseout="this.style.background='#402B18'; this.style.color='#BFA38A';"
+            >
+            <a 
+                href="{% url 'editadministrador' %}" 
+                class="text-decoration-none" 
+                style="color: inherit;"
+            >
+                consultar
+            </a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+{% endblock %}
+

@@ -41,7 +41,12 @@ urlpatterns = [
     path('logout', views.logout, name='logout'),
     # # RECUPERACION DE CONTRASEÑA
     path('accounts/', include('allauth.urls')),
-    
+    # ENVIO
+    path('envio',views.envio, name='envio'),
+    #admin
+    path('editadministrador',views.editadministrador, name='editadministrador'),
+    path('administrador',views.administrador, name='administrador'),
+    path('editproducto',views.editproducto, name='editproducto'),
 ]
 
 

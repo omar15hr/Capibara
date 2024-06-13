@@ -26,7 +26,7 @@ def cart_detail(request):
     return render(request, 'detail.html', {'cart': cart, 'cantidad_productos': cantidad_productos})
 
 def get_item_quantity(self, product):
-        """
+        """pip install -r requirements.txt
         Retorna la cantidad del producto especificado en el carrito.
         """
         for item in self.cart:

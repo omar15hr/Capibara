@@ -6,6 +6,12 @@ from django.contrib import messages
 import bcrypt
 from .forms import *
 from .forms import reparationForm
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from django.views.generic import ListView
+from django.http.response import HttpResponse
+from django.views.decorators.http import require_GET
+
 
 def home(request):
   products = Product.objects.all()
@@ -97,4 +103,30 @@ def logout(request):
     
     return redirect('/')
 
+
+def envio(request):
+  products = Product.objects.all()
+  cart = Cart(request)
+  cantidad_productos = len(cart)
+  return render(request, 'envio.html', {'products': products, 'cart': cart, 'cantidad_productos': cantidad_productos})
+
+
+def administrador(request):
+  products = Product.objects.all()
+  cart = Cart(request)
+  cantidad_productos = len(cart)
+  return render(request, 'administrador.html', {'products': products, 'cart': cart, 'cantidad_productos': cantidad_productos})
+
+def editproducto(request, productoId):
+  product = get_object_or_404(Product, pk=productoId)
+  cart = Cart(request)
+  cantidad_productos = len(cart)
+  tipoProduct = product.tipo.name
+  return render(request, 'editproducto.html', {'product': product, 'tipoProduct': tipoProduct, 'cart': cart, 'cantidad_productos': cantidad_productos})
+
+def editadministrador(request):
+  products = Product.objects.all()
+  cart = Cart(request)
+  cantidad_productos = len(cart)
+  return render(request, 'editadministrador.html', {'products': products, 'cart': cart, 'cantidad_productos': cantidad_productos})
 
