@@ -6,6 +6,7 @@ from django.contrib import messages
 import bcrypt
 from .forms import *
 from .forms import reparationForm
+from .forms import RegionForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView
@@ -175,3 +176,12 @@ def eliminarproduct(request, ProductId):
     return redirect('/')
 
 
+def regionselect(request):
+    if request.method == 'POST':
+        form = RegionForm(request.POST)
+        if form.is_valid():
+            selected_region = form.cleaned_data['region']
+            return render(request, 'region_selected.html', {'region': selected_region})
+    else:
+        form = RegionForm()
+    return render(request, 'index.html', {'form': form})

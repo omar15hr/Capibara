@@ -18,4 +18,3 @@ class User(models.Model):
     updated_at = DateTimeField(auto_now=True)
 
 
-    

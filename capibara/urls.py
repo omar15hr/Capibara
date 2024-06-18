@@ -43,6 +43,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     # ENVIO
     path('envio',views.envio, name='envio'),
+    path('region/<int:region_id>/',views.regionselect, name='region'),
     #admin
     path('editadministrador',views.editadministrador, name='editadministrador'),
     path('administrador',views.administrador, name='administrador'),
