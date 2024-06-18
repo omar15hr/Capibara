@@ -56,7 +56,6 @@ class Product(models.Model):
     created_at = DateTimeField(verbose_name='Fecha registro', auto_now_add=True)
     updated_at = DateTimeField(verbose_name='Fecha actualización', auto_now=True)
 
-
 # Modelo para envíos
 class region(models.Model):
     nombre = CharField(max_length=100)
@@ -101,4 +100,6 @@ class DireccionEntrega(models.Model):
 
     def __str__(self):
         return str(self.direccion)
+    
+
 

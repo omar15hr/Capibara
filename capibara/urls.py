@@ -46,7 +46,10 @@ urlpatterns = [
     #admin
     path('editadministrador',views.editadministrador, name='editadministrador'),
     path('administrador',views.administrador, name='administrador'),
-    path('editproducto',views.editproducto, name='editproducto'),
+    path('registrarProduct/', views.registrarProduct),
+    path('edicionproduct/<ProductId>', views.edicionproduct),
+    path('editarproduct/', views.editarproduct),
+    path('eliminarproduct/<ProductId>', views.eliminarproduct)
 ]
 
 

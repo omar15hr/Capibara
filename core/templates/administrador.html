@@ -6,79 +6,83 @@
 
 
 
-<div class="container">
-    <div class="row justify-content-center">
-      <div class="col-4">
-        <div class="card card-product text-center bg-white text-black">
-          <img src="{% static 'core/cama-garcia.png'%}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="...">
-          <div class="card-body shadow ">
-            <p class="card-text"><b>cambio stock</b>
-            </p>
-        </form>
-        <button 
-        class="py-2 border-0 text-white " 
-        style="background: #402B18; border-radius: 5px; color: #BFA38A; transition: background-color 0.3s, color 0.3s;" 
-        onmouseover="this.style.background='#5a3c22'; this.style.color='#BFA38A';" 
-        onmouseout="this.style.background='#402B18'; this.style.color='#BFA38A';"
-        >
-        <a 
-            href="{% url 'editadministrador' %}" 
-            class="text-decoration-none" 
-            style="color: inherit;"
-        >
-            Ver Productos
-        </a>
-        </button>
-          </div>
-        </div>
-      </div>
+
   
-      <div class="col-4">
-        <div class="card card-product text-center bg-white text-black">
-          <img src="{% static 'core/cama-liberty.png'%}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="...">
-          <div class="card-body shadow">
-            <p class="card-text"><b>subir stock</b>
-            </p>
-            <form action="enviar formulario" method="get">
-                <p>Subir excel: <input type="file" />
-                
-                <p>
-                    <input type="submit" value="subir excel" href="home.html">
-                  
-                </p>
-              </form>
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong class="text-dark">{{ message }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+    <div class="card text-center ">
+      <div class="card-header">
+        Formulario actualizacion stock excel
+      </div>
+      <div class="card-body">
+        <form action="enviar formulario" method="get">
+          <p>Subir excel: <input type="file" />
+          
+          <p>
+              <input type="submit" value="subir excel" href="home.html">
             
-          </div>
-        </div>
-      </div>
-  
-      <div class="col-4">
-        <div class="card card-product text-center bg-white text-black">
-          <img src="{% static 'core/respaldo-garcia.png'%}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="...">
-          <div class="card-body shadow">
-            <p class="card-text bold"><b>revisar bajo stock</b>
-            </p>
-            </form>
-            <button 
-            class="py-2 border-0 text-white " 
-            style="background: #402B18; border-radius: 5px; color: #BFA38A; transition: background-color 0.3s, color 0.3s;" 
-            onmouseover="this.style.background='#5a3c22'; this.style.color='#BFA38A';" 
-            onmouseout="this.style.background='#402B18'; this.style.color='#BFA38A';"
-            >
-            <a 
-                href="{% url 'editadministrador' %}" 
-                class="text-decoration-none" 
-                style="color: inherit;"
-            >
-                consultar
-            </a>
-            </button>
-          </div>
-        </div>
+          </p>
+        </form>
       </div>
     </div>
-  </div>
-  
+    <h2>Agregar producto</h2>
+    <div class="card text-center">
+        <div class="card-body">
+            <form action="/registrarproduct/" method="POST">{% csrf_token %}
+                <div class="form-group">
+                    <input type="text" id="txtProductId" name="txtProductId" class="form-control" placeholder="id producto"
+                        minlength="6" maxlength="6" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre"
+                        maxlength="50" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="stock" name="stock" class="form-control" placeholder="stock"  required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+        <h1>Listado de Productos</h1>
+        <div class="table-responsive py-2">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in products %}
+                    <tr>
+                        <td>{{p.ProductId}}</td>
+                        <td>{{p.nombre}}</td>
+                        <td>{{p.stock_disponible}}</td>
+                        <td><a href="edicionproduct/{{p.ProductId}}" class="btn btn-info">Editar</a></td>
+                        <td><a href="eliminarproduct/{{p.ProductId}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
 

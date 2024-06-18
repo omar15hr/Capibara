@@ -11,6 +11,8 @@ from django.utils.decorators import method_decorator
 from django.views.generic import ListView
 from django.http.response import HttpResponse
 from django.views.decorators.http import require_GET
+from django.contrib import messages
+
 
 
 def home(request):
@@ -115,6 +117,7 @@ def administrador(request):
   products = Product.objects.all()
   cart = Cart(request)
   cantidad_productos = len(cart)
+  messages.success(request, '¡Productos listados!')
   return render(request, 'administrador.html', {'products': products, 'cart': cart, 'cantidad_productos': cantidad_productos})
 
 def editproducto(request, productoId):
@@ -122,11 +125,53 @@ def editproducto(request, productoId):
   cart = Cart(request)
   cantidad_productos = len(cart)
   tipoProduct = product.tipo.name
-  return render(request, 'editproducto.html', {'product': product, 'tipoProduct': tipoProduct, 'cart': cart, 'cantidad_productos': cantidad_productos})
+  return render(request, 'editadministrador.html', {'product': product, 'tipoProduct': tipoProduct, 'cart': cart, 'cantidad_productos': cantidad_productos})
 
 def editadministrador(request):
   products = Product.objects.all()
   cart = Cart(request)
   cantidad_productos = len(cart)
   return render(request, 'editadministrador.html', {'products': products, 'cart': cart, 'cantidad_productos': cantidad_productos})
+
+
+
+def registrarProduct(request):
+    ProductId = request.POST['txtProductId']
+    nombre = request.POST['txtNombre']
+    stock_disponible = request.POST['stock']
+
+    product = product.objects.create(
+        ProductId=ProductId, nombre=nombre, stock_disponible=stock_disponible)
+    messages.success(request, 'producto registrado!')
+    return redirect('/')
+
+
+def edicionproduct(request, ProductId):
+    product = product.objects.get(ProductId=ProductId)
+    return render(request, "editadministrador.html", {"products": product})
+
+
+def editarproduct(request):
+    ProductId = request.POST['txtProductId']
+    nombre = request.POST['txtNombre']
+    stock_disponible = request.POST['stock']
+
+    product = product.objects.get(ProductId=ProductId)
+    product.nombre = nombre
+    product.stock_disponible = stock_disponible
+    product.save()
+
+    messages.success(request, 'producto actualizado!')
+
+    return redirect('/')
+
+
+def eliminarproduct(request, ProductId):
+    product = product.objects.get(ProductId=ProductId)
+    product.delete()
+
+    messages.success(request, 'producto eliminado!')
+
+    return redirect('/')
+
 
